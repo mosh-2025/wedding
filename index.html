@@ -136,6 +136,11 @@
             text-align: center;
         }
 
+        /* Añade decoraciones como las hojas */
+        .countdown-decoration {
+            position: relative;
+        }
+
         .countdown-section h2 {
             font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
@@ -221,7 +226,7 @@
     </style>
 </head>
 <body>
-
+    
     <!-- Carrete de fotos -->
     <div class="carousel">
         <img src="https://via.placeholder.com/1920x1080/ff7f7f" alt="Imagen 1">
@@ -308,10 +313,36 @@
         </div>
     </section>
 
+    
+    <!-- Sección de cuenta regresiva -->
+    <section class="countdown-section countdown-decoration">
+        <h2>TE ESPERAMOS EN NUESTRA BODA</h2>
+        <p>07 de diciembre de 2024</p>
+        
+        <div class="countdown-container">
+            <div class="countdown-box">
+                <span id="days">00</span>
+                <small>DÍAS</small>
+            </div>
+            <div class="countdown-box">
+                <span id="hours">00</span>
+                <small>HORAS</small>
+            </div>
+            <div class="countdown-box">
+                <span id="minutes">00</span>
+                <small>MINUTOS</small>
+            </div>
+            <div class="countdown-box">
+                <span id="seconds">00</span>
+                <small>SEGUNDOS</small>
+            </div>
+        </div>
+    </section>
+
     <script>
         // Script para la cuenta regresiva
         const countdown = () => {
-            const weddingDate = new Date("November 20, 2024 17:00:00").getTime();
+            const weddingDate = new Date("December 7, 2024 17:00:00").getTime();
             const now = new Date().getTime();
             const difference = weddingDate - now;
 
