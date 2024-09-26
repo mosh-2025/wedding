@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>M&O 2025</title>
+    <!-- Favicon -->
+    <link rel="icon" href="https://e7.pngegg.com/pngimages/852/20/png-clipart-email-symbol-graphy-icon-creative-envelope-love-miscellaneous.png" type="image/svg+xml" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400&display=swap');
@@ -184,33 +186,6 @@
             margin-top: 10px;
         }
 
-        /* Añade decoraciones como las hojas */
-        .countdown-decoration {
-            position: relative;
-        }
-
-        .countdown-decoration::before,
-        .countdown-decoration::after {
-            content: "";
-            position: absolute;
-            background: url('ruta-a-la-imagen-hojas.png') no-repeat;
-            background-size: contain;
-            width: 100px;
-            height: 150px;
-            opacity: 0.6;
-        }
-
-        .countdown-decoration::before {
-            left: -120px;
-            top: -20px;
-        }
-
-        .countdown-decoration::after {
-            right: -120px;
-            bottom: -20px;
-            transform: scaleX(-1);
-        }
-
         /* Collage de fotos */
         .collage {
             padding: 3rem 1rem;
@@ -347,175 +322,86 @@
         .form-section form button {
             width: 100%;
             padding: 10px;
-            margin: 10px 0;
+            margin-bottom: 15px;
+            font-size: 1rem;
             border-radius: 5px;
-            border: 1px solid #ddd;
+            border: 1px solid #ccc;
         }
 
         .form-section form button {
             background-color: #d4af37;
             color: white;
             border: none;
-            font-size: 1rem;
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
-        /* Footer */
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            font-size: 0.9rem;
+        .form-section form button:hover {
+            background-color: #b89330;
         }
     </style>
 </head>
-<body>
 
-    <!-- Carrete de fotos -->
+<body>
+    <!-- Carrete automático de fotos -->
     <div class="carousel">
-        <img src="https://via.placeholder.com/1920x1080/ff7f7f" alt="Imagen 1">
-        <img src="https://via.placeholder.com/1920x1080/7f7fff" alt="Imagen 2">
-        <img src="https://via.placeholder.com/1920x1080/7fff7f" alt="Imagen 3">
         <div class="overlay"></div>
+        <img src="img1.jpg" alt="Foto 1">
+        <img src="img2.jpg" alt="Foto 2">
+        <img src="img3.jpg" alt="Foto 3">
         <div class="content">
-            <h1>Monze & Oscar</h1>
+            <h1>Nuestra Boda</h1>
         </div>
     </div>
 
-    <!-- Nuestra historia -->
-    <section class="history">
-        <h2>Nuestra Historia</h2>
-        <p>Monze y Oscar se conocieron en el 2019 y han decidido dar este importante paso...</p>
-        <img src="https://via.placeholder.com/150" alt="Monze">
-        <img src="https://via.placeholder.com/150" alt="Oscar">
-    </section>
-
-    <!-- Sección de padres -->
-    <section class="parents">
-        <h2>Nuestros Padres</h2>
-        <p>Con gran alegría, nuestros padres nos acompañan en este día especial.</p>
-        <div class="columns">
-            <p>Padres de Monze</p>
-            <p>Padres de Oscar</p>
-        </div>
-    </section>
-
-    <!-- Sección de cuenta regresiva -->
-    <section class="countdown-section countdown-decoration">
-        <h2>Faltan...</h2>
-        <p>Para el gran día</p>
-        <div class="countdown-container">
-            <div class="countdown-box">
-                <span id="days">0</span>
-                <small>Días</small>
-            </div>
-            <div class="countdown-box">
-                <span id="hours">0</span>
-                <small>Horas</small>
-            </div>
-            <div class="countdown-box">
-                <span id="minutes">0</span>
-                <small>Minutos</small>
-            </div>
-            <div class="countdown-box">
-                <span id="seconds">0</span>
-                <small>Segundos</small>
-            </div>
-        </div>
-    </section>
-
-    <!-- Collage de fotos -->
-    <section class="collage">
-        <img src="https://via.placeholder.com/200" alt="Foto 1">
-        <img src="https://via.placeholder.com/200" alt="Foto 2">
-        <img src="https://via.placeholder.com/200" alt="Foto 3">
-        <img src="https://via.placeholder.com/200" alt="Foto 4">
-    </section>
-
-    <!-- Sección de citas -->
-    <section class="quote-section">
-        <div class="quote-content">
-            <h2>"El amor no consiste en mirarse el uno al otro, sino en mirar juntos en la misma dirección."</h2>
-            <p class="author">- Antoine de Saint-Exupéry</p>
-        </div>
-    </section>
-
-    <!-- Ubicaciones -->
-    <section class="locations">
-        <div class="location">
-            <i class="fas fa-map-marker-alt"></i>
-            <h3>Ceremonia</h3>
-            <p>Iglesia de la Ciudad</p>
-            <a href="#">Ver ubicación</a>
-        </div>
-        <div class="location">
-            <i class="fas fa-map-marker-alt"></i>
-            <h3>Recepción</h3>
-            <p>Salón de Eventos</p>
-            <a href="#">Ver ubicación</a>
-        </div>
-    </section>
-
-    <!-- Sección de confirmación -->
+    <!-- Sección de formulario -->
     <section class="form-section">
-        <h2>Confirma tu Asistencia</h2>
-        <form id="rsvp-form">
-            <input type="text" name="nombre" placeholder="Tu nombre" required>
-            <select name="asistencia" required>
-                <option value="">¿Asistirás?</option>
-                <option value="Si">Sí</option>
-                <option value="No">No</option>
+        <h2>RSVP</h2>
+        <form id="rsvpForm">
+            <input type="text" id="nombre" placeholder="Nombre completo" required>
+            <input type="email" id="email" placeholder="Correo electrónico" required>
+            <select id="asistencia">
+                <option value="Asistiré">Asistiré</option>
+                <option value="No asistiré">No asistiré</option>
             </select>
-            <input type="number" name="num_invitados" placeholder="Número de invitados" required>
-            <button type="submit">Confirmar</button>
+            <button type="submit">Enviar</button>
         </form>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        &copy;  Monze & Oscar 2025. Todos los derechos reservados.
-    </footer>
-
     <script>
-        // Script para enviar datos a Google Sheets
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbxK8cOvJnDinbGjSAaiVbP1Mlyqe-FdASsjsBnsF5om7yLPdZLC90E3mBHGpSXWrWUPzA/exec';  // Cambia por tu propio URL de Google Script
-        const form = document.getElementById('rsvp-form');
+        const form = document.getElementById('rsvpForm');
 
-        form.addEventListener('submit', e => {
-            e.preventDefault();
-        fetch(scriptURL, {
-            method: 'POST',
-            mode: 'no-cors', // Deshabilita CORS para esta solicitud
-            body: new FormData(form)
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const nombre = document.getElementById('nombre').value;
+            const email = document.getElementById('email').value;
+            const asistencia = document.getElementById('asistencia').value;
+            
+            const data = {
+                Nombre: nombre,
+                Email: email,
+                Asistencia: asistencia
+            };
+            
+            // Enviar datos a Google Sheets mediante el proxy
+            fetch('https://my-proxy-url.com', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
             })
-            .then(() => {
-            alert('Confirmación enviada con éxito.');
+            .then(response => response.json())
+            .then(result => {
+                alert('¡Formulario enviado con éxito!');
+                form.reset();
             })
             .catch(error => {
-            console.error('Error al enviar la confirmación:', error);
+                alert('Hubo un error al enviar el formulario.');
+                console.error('Error:', error);
             });
-
-
-        // Script para la cuenta regresiva
-        const countdown = () => {
-            const weddingDate = new Date("March 8, 2025 17:00:00").getTime();
-            const now = new Date().getTime();
-            const difference = weddingDate - now;
-
-            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-            document.getElementById("days").innerText = days;
-            document.getElementById("hours").innerText = hours;
-            document.getElementById("minutes").innerText = minutes;
-            document.getElementById("seconds").innerText = seconds;
-        };
-
-        setInterval(countdown, 1000);
+        });
     </script>
-
 </body>
 </html>
