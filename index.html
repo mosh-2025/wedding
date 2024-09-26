@@ -227,18 +227,64 @@
             border-radius: 10px;
         }
 
-        /* Sección de amor */
+        /* Sección de cita con fondo */
         .quote-section {
-            padding: 4rem 1rem;
-            background: url('https://img.freepik.com/foto-gratis/decoracion-boda-concepto_23-2148740494.jpg') no-repeat center center/cover;
+            position: relative;
+            background: url('/mnt/data/image.png') no-repeat center center;
+            background-size: cover;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
             color: white;
             text-align: center;
         }
 
-        .quote-section h2 {
+        .quote-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+            z-index: 1;
+        }
+
+        .quote-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
             font-family: 'Playfair Display', serif;
+        }
+
+        .quote-content h2 {
             font-size: 2.5rem;
-            margin-bottom: 1rem;
+            font-style: italic;
+            line-height: 1.5;
+        }
+
+        .quote-content .author {
+            margin-top: 20px;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Para dispositivos móviles */
+        @media (max-width: 768px) {
+            .quote-section {
+                height: 300px;
+            }
+
+            .quote-content h2 {
+                font-size: 1.8rem;
+            }
+
+            .quote-content .author {
+                font-size: 0.9rem;
+            }
         }
 
         /* Ubicaciones */
@@ -288,7 +334,7 @@
         <img src="https://via.placeholder.com/1920x1080/7fff7f" alt="Imagen 3">
         <div class="overlay"></div>
         <div class="content">
-            <h1>Juan & María</h1>
+            <h1>Monze & Oscar</h1>
         </div>
     </div>
 
@@ -299,7 +345,7 @@
             <img src="https://via.placeholder.com/150" alt="Novio">
             <img src="https://via.placeholder.com/150" alt="Novia">
         </div>
-        <p>Nos conocimos en 2015 y desde entonces hemos compartido momentos increíbles...</p>
+        <p>Nos conocimos en 2019 y desde entonces hemos compartido momentos increíbles...</p>
     </section>
 
     <!-- Padres -->
@@ -349,9 +395,12 @@
         <img src="https://via.placeholder.com/200" alt="Foto 6">
     </section>
 
-    <!-- Cita sobre el amor -->
+    <!-- Sección de la cita -->
     <section class="quote-section">
-        <h2>"El amor todo lo puede"</h2>
+        <div class="quote-content">
+            <h2>"El amor es paciente, es bondadoso. El amor no es envidioso ni jactancioso ni orgulloso. No se comporta con rudeza, no es egoísta, no se enoja fácilmente, no guarda rencor."</h2>
+            <div class="author">1 DE CORINTIOS 13:4-5</div>
+        </div>
     </section>
 
     <!-- Ubicaciones -->
