@@ -129,7 +129,6 @@
             margin-top: 2rem;
         }
 
-        
         /* Cuenta regresiva estilo elegante */
         .countdown-section {
             text-align: center;
@@ -323,6 +322,52 @@
             border-radius: 5px;
             margin-top: 1rem;
         }
+
+        /* Estilos para formulario */
+        .form-section {
+            background-color: #f8f4f0;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .form-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #4a4a4a;
+            margin-bottom: 20px;
+        }
+
+        .form-section form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .form-section form input,
+        .form-section form select,
+        .form-section form button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .form-section form button {
+            background-color: #d4af37;
+            color: white;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
@@ -341,46 +386,41 @@
     <!-- Nuestra historia -->
     <section class="history">
         <h2>Nuestra Historia</h2>
-        <div>
-            <img src="https://via.placeholder.com/150" alt="Novio">
-            <img src="https://via.placeholder.com/150" alt="Novia">
-        </div>
-        <p>Nos conocimos en 2019 y desde entonces hemos compartido momentos increíbles...</p>
+        <p>Monze y Oscar se conocieron hace 8 años y han decidido dar este importante paso...</p>
+        <img src="https://via.placeholder.com/150" alt="Monze">
+        <img src="https://via.placeholder.com/150" alt="Oscar">
     </section>
 
-    <!-- Padres -->
+    <!-- Sección de padres -->
     <section class="parents">
         <h2>Nuestros Padres</h2>
+        <p>Con gran alegría, nuestros padres nos acompañan en este día especial.</p>
         <div class="columns">
-            <p>Padres del Novio</p>
-            <p>&</p>
-            <p>Padres de la Novia</p>
+            <p>Padres de Monze</p>
+            <p>Padres de Oscar</p>
         </div>
     </section>
-
-    <!-- Cuenta regresiva II -->
 
     <!-- Sección de cuenta regresiva -->
     <section class="countdown-section countdown-decoration">
-        <h2>TE ESPERAMOS EN NUESTRA BODA</h2>
-        <p>08 de Marzo del 2025</p>
-        
+        <h2>Faltan...</h2>
+        <p>Para el gran día</p>
         <div class="countdown-container">
             <div class="countdown-box">
-                <span id="days">00</span>
-                <small>DÍAS</small>
+                <span id="days">0</span>
+                <small>Días</small>
             </div>
             <div class="countdown-box">
-                <span id="hours">00</span>
-                <small>HORAS</small>
+                <span id="hours">0</span>
+                <small>Horas</small>
             </div>
             <div class="countdown-box">
-                <span id="minutes">00</span>
-                <small>MINUTOS</small>
+                <span id="minutes">0</span>
+                <small>Minutos</small>
             </div>
             <div class="countdown-box">
-                <span id="seconds">00</span>
-                <small>SEGUNDOS</small>
+                <span id="seconds">0</span>
+                <small>Segundos</small>
             </div>
         </div>
     </section>
@@ -391,42 +431,67 @@
         <img src="https://via.placeholder.com/200" alt="Foto 2">
         <img src="https://via.placeholder.com/200" alt="Foto 3">
         <img src="https://via.placeholder.com/200" alt="Foto 4">
-        <img src="https://via.placeholder.com/200" alt="Foto 5">
-        <img src="https://via.placeholder.com/200" alt="Foto 6">
     </section>
 
-    <!-- Sección de la cita -->
+    <!-- Sección de citas -->
     <section class="quote-section">
         <div class="quote-content">
-            <h2>"El amor es paciente, es bondadoso. El amor no es envidioso ni jactancioso ni orgulloso. No se comporta con rudeza, no es egoísta, no se enoja fácilmente, no guarda rencor."</h2>
-            <div class="author">1 DE CORINTIOS 13:4-5</div>
+            <h2>"El amor no consiste en mirarse el uno al otro, sino en mirar juntos en la misma dirección."</h2>
+            <p class="author">- Antoine de Saint-Exupéry</p>
         </div>
     </section>
 
     <!-- Ubicaciones -->
     <section class="locations">
         <div class="location">
-            <i class="fas fa-church"></i>
-            <h3>Ceremonia Religiosa</h3>
-            <p>Iglesia de San Pedro</p>
-            <p>Calle Falsa 123</p>
-            <p>5:00 PM</p>
-            <a href="https://maps.google.com">Ver en Google Maps</a>
+            <i class="fas fa-map-marker-alt"></i>
+            <h3>Ceremonia</h3>
+            <p>Iglesia de la Ciudad</p>
+            <a href="#">Ver ubicación</a>
         </div>
         <div class="location">
-            <i class="fas fa-glass-cheers"></i>
+            <i class="fas fa-map-marker-alt"></i>
             <h3>Recepción</h3>
-            <p>Salón La Finca</p>
-            <p>Avenida Siempreviva 742</p>
-            <p>7:00 PM</p>
-            <a href="https://maps.google.com">Ver en Google Maps</a>
+            <p>Salón de Eventos</p>
+            <a href="#">Ver ubicación</a>
         </div>
     </section>
 
+    <!-- Sección de confirmación -->
+    <section class="form-section">
+        <h2>Confirma tu Asistencia</h2>
+        <form id="rsvp-form">
+            <input type="text" name="nombre" placeholder="Tu nombre" required>
+            <select name="asistencia" required>
+                <option value="">¿Asistirás?</option>
+                <option value="Si">Sí</option>
+                <option value="No">No</option>
+            </select>
+            <input type="number" name="num_invitados" placeholder="Número de invitados" required>
+            <button type="submit">Confirmar</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 Monze & Oscar. Todos los derechos reservados.
+    </footer>
+
     <script>
+        // Script para enviar datos a Google Sheets
+        const scriptURL = 'https://script.google.com/macros/s/tu_script_ID/exec';  // Cambia por tu propio URL de Google Script
+        const form = document.getElementById('rsvp-form');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => alert('¡Gracias por confirmar!'))
+                .catch(error => console.error('Error!', error.message));
+        });
+
         // Script para la cuenta regresiva
         const countdown = () => {
-            const weddingDate = new Date("December 7, 2024 17:00:00").getTime();
+            const weddingDate = new Date("March 8, 2025 17:00:00").getTime();
             const now = new Date().getTime();
             const difference = weddingDate - now;
 
