@@ -1,113 +1,151 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>¿Quieres ser mi novia?</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-color: #f3f3f3;
-      font-family: Arial, sans-serif;
-    }
-    #container {
-      text-align: center;
-    }
-    h1 {
-      font-size: 32px;
-      color: #333;
-    }
-    #buttons {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    button {
-      margin: 10px;
-      padding: 10px 20px;
-      font-size: 18px;
-      color: #fff;
-      background-color: #4CAF50;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-    button:hover {
-      background-color: #45a049;
-    }
-    #btnNo {
-      background-color: #f44336;
-    }
-    #btnNo:hover {
-      background-color: #d32f2f;
-    }
-    img {
-      margin-top: 30px;
-      max-width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-  </style>
-  <script>
-    function accionParaCuandoEllaDigaQueSi() {
-      alert("¡Ahora ya somos novios! ❤️");
-    }
-
-    function mueveElBoton() {
-      const width = window.innerWidth;
-      const height = window.innerHeight;
-
-      const newWidth = Math.random() * width;
-      const newHeight = Math.random() * height;
-
-      const btnNo = document.getElementById("btnNo");
-      btnNo.style.position = "absolute";
-      btnNo.style.left = newWidth + "px";
-      btnNo.style.top = newHeight + "px";
-    }
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            text-align: center;
+            font-family: 'Cursive', sans-serif;
+        }
+        .vintage {
+            background-color: #e0d8b0;
+            padding: 20px;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .map {
+            margin: 20px 0;
+        }
+        .carousel {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+        }
+        .carousel img {
+            width: 100%;
+            scroll-snap-align: center;
+            border-radius: 10px;
+            margin: 0 10px;
+        }
+        .music {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <div id="container">
-      <h1>¿Quieres ser mi novia?</h1>
-      <div id="buttons">
-        <button onclick="accionParaCuandoEllaDigaQueSi()" id="btnSi">Sí</button>
-        <button id="btnNo" onmouseover="mueveElBoton()">No</button>
-      </div>
-      <img src="img/2.jpeg" alt="" width="200">
+    <div class="container">
+        <h1>John & Jane's Wedding</h1>
+        <img src="wedding_photo.jpg" alt="Wedding Photo" style="width:100%; border-radius: 10px;">
+        <div class="music">
+            <audio controls autoplay>
+                <source src="song.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+        <div class="vintage">
+            <p>We are delighted to invite you to our wedding celebration. Please join us for a day of love, laughter, and happily ever after.</p>
+        </div>
+        <div class="carousel">
+            <img src="photo1.jpg" alt="Photo 1">
+            <img src="photo2.jpg" alt="Photo 2">
+            <img src="photo3.jpg" alt="Photo 3">
+        </div>
+        <div class="vintage">
+            <h3>Itinerary</h3>
+            <p>10:00 AM - Ceremony at the Church</p>
+            <p>12:00 PM - Reception at the Party Venue</p>
+            <p>2:00 PM - Lunch and Celebrations</p>
+        </div>
+        <div class="map">
+            <h3>Church Location</h3>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509374!2d144.9537353153167!3d-37.8162792797517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577d9f0b1b0b1b!2sFederation%20Square!5e0!3m2!1sen!2sau!4v1614311234567!5m2!1sen!2sau" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <div class="map">
+            <h3>Party Location</h3>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509374!2d144.9537353153167!3d-37.8162792797517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577d9f0b1b0b1b!2sFederation%20Square!5e0!3m2!1sen!2sau!4v1614311234567!5m2!1sen!2sau" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <div class="vintage">
+            <h3>Dress Code</h3>
+            <p>Formal attire is requested. Please dress to impress!</p>
+        </div>
+        <div class="form-group">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+        </div>
+        <div class="vintage">
+            <h3>Gift Information</h3>
+            <p>If you wish to honor us with a gift, please use the following bank account number:</p>
+            <p><strong>Account Number:</strong> 123456789</p>
+            <p>Thank you for your generosity!</p>
+        </div>
+        <button class="submit-btn" onclick="submitForm()">Submit</button>
+        <div class="vintage">
+            <h3>Thank You!</h3>
+            <p>We are so grateful for your presence on our special day. Thank you for celebrating with us!</p>
+        </div>
     </div>
-  
+
     <script>
-      function accionParaCuandoEllaDigaQueSi() {
-        const respuesta = confirm("¿Estás segura de querer ser mi novia?");
-        if (respuesta) {
-          // Redireccionar a la nueva página si responde "Sí"
-          window.location.href = "opcionsi.html";
-        } else {
-          alert("Espero que puedas reconsiderarlo 😊");
+        function submitForm() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            if (name && email && message) {
+                alert('Thank you for your response!');
+                // Here you can add code to send the form data to your server or save it in an Excel file
+            } else {
+                alert('Please fill out all fields.');
+            }
         }
-      }
-  
-      function mueveElBoton() {
-        const width = window.innerWidth;
-        const height = window.innerHeight;
-  
-        const newWidth = Math.random() * width;
-        const newHeight = Math.random() * height;
-  
-        const btnNo = document.getElementById("btnNo");
-        btnNo.style.position = "absolute";
-        btnNo.style.left = newWidth + "px";
-        btnNo.style.top = newHeight + "px";
-      }
     </script>
-  </body>
-  </html>
+</body>
+</html>
