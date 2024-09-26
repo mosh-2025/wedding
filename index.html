@@ -7,7 +7,6 @@
     <title>Invitación de Boda</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Fuentes y estilos elegantes */
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400&display=swap');
 
         * {
@@ -23,15 +22,38 @@
             scroll-behavior: smooth;
         }
 
-        /* Sección hero con imagen de fondo ajustable */
-        .hero {
+        /* Carrete automático de fotos */
+        .carousel {
             position: relative;
+            width: 100%;
             height: 100vh;
-            background: url('https://img.freepik.com/foto-gratis/arreglos-mesa-elegante-boda-exterior_23-2148975700.jpg') no-repeat center center/cover;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
+            overflow: hidden;
+        }
+
+        .carousel img {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: slide 15s infinite;
+        }
+
+        @keyframes slide {
+            0% { opacity: 1; }
+            20% { opacity: 0; }
+            40% { opacity: 0; }
+            60% { opacity: 1; }
+            100% { opacity: 1; }
+        }
+
+        .carousel img:nth-child(2) {
+            animation-delay: 5s;
+        }
+
+        .carousel img:nth-child(3) {
+            animation-delay: 10s;
         }
 
         .overlay {
@@ -47,161 +69,265 @@
             position: relative;
             z-index: 1;
             color: #fff;
+            text-align: center;
+            top: 40%;
         }
 
-        .names {
+        .content h1 {
             font-family: 'Playfair Display', serif;
             font-size: 4rem;
-            margin-bottom: 0.5rem;
         }
 
-        .date {
+        /* Nuestra historia */
+        .history {
+            padding: 3rem 1rem;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .history h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .history p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .history img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 2rem;
+        }
+
+        /* Padres */
+        .parents {
+            padding: 3rem 1rem;
+            text-align: center;
+            background-color: #f7f7f7;
+        }
+
+        .parents h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .parents p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+        }
+
+        .parents .columns {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 2rem;
+        }
+
+        /* Cuenta regresiva */
+        .countdown-section {
+            padding: 3rem 1rem;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .countdown-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .countdown {
+            font-size: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .countdown div {
+            text-align: center;
+        }
+
+        /* Collage de fotos */
+        .collage {
+            padding: 3rem 1rem;
+            text-align: center;
+            background-color: #f7f7f7;
+        }
+
+        .collage img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            margin: 0.5rem;
+            border-radius: 10px;
+        }
+
+        /* Sección de amor */
+        .quote-section {
+            padding: 4rem 1rem;
+            background: url('https://img.freepik.com/foto-gratis/decoracion-boda-concepto_23-2148740494.jpg') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+        }
+
+        .quote-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Ubicaciones */
+        .locations {
+            padding: 3rem 1rem;
+            background-color: #fff;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .location {
+            text-align: center;
+        }
+
+        .location h3 {
             font-size: 1.5rem;
             margin-bottom: 1rem;
         }
 
-        .scroll-btn {
-            position: absolute;
-            bottom: 10%;
-            left: 50%;
-            transform: translateX(-50%);
-            color: #fff;
-            font-size: 2rem;
-            cursor: pointer;
-        }
-
-        /* Sección de detalles del evento */
-        .details {
-            padding: 3rem 1rem;
-            text-align: center;
-            background-color: #fff;
-        }
-
-        .details h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .details p {
-            font-size: 1.2rem;
+        .location p {
+            font-size: 1.1rem;
             margin-bottom: 1rem;
         }
 
-        .rsvp-btn {
-            padding: 1rem 2rem;
-            font-size: 1.2rem;
-            border: none;
+        .location i {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .location a {
+            display: inline-block;
+            padding: 0.5rem 1rem;
             background-color: #d4af37;
             color: white;
-            cursor: pointer;
-            border-radius: 50px;
-            transition: background-color 0.3s ease;
-            margin-top: 2rem;
-        }
-
-        .rsvp-btn:hover {
-            background-color: #b8902f;
-        }
-
-        /* Estilos para el formulario RSVP */
-        .rsvp-form {
-            display: none;
-            padding: 2rem;
-            background-color: #f9f9f9;
-            text-align: center;
-            margin: 2rem 0;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .rsvp-form input, .rsvp-form button {
-            padding: 1rem;
-            font-size: 1rem;
-            margin: 0.5rem 0;
-            width: 100%;
+            text-decoration: none;
             border-radius: 5px;
-            border: 1px solid #ddd;
-        }
-
-        /* Sección de video */
-        .video-section {
-            padding: 3rem 1rem;
-            background-color: #fff;
-            text-align: center;
-        }
-
-        .video-section video {
-            max-width: 90%;
-            border-radius: 10px;
-        }
-
-        footer {
-            background-color: #333;
-            color: white;
-            padding: 2rem;
-            text-align: center;
+            margin-top: 1rem;
         }
     </style>
 </head>
 <body>
-    <!-- Sección principal con la imagen de fondo -->
-    <div class="hero">
+
+    <!-- Carrete de fotos -->
+    <div class="carousel">
+        <img src="https://via.placeholder.com/1920x1080/ff7f7f" alt="Imagen 1">
+        <img src="https://via.placeholder.com/1920x1080/7f7fff" alt="Imagen 2">
+        <img src="https://via.placeholder.com/1920x1080/7fff7f" alt="Imagen 3">
         <div class="overlay"></div>
         <div class="content">
-            <h1 class="names">Juan & María</h1>
-            <p class="date">Nos casamos el 20 de Noviembre de 2024</p>
-            <div class="scroll-btn">
-                <i class="fas fa-chevron-down"></i>
-            </div>
+            <h1>Juan & María</h1>
         </div>
     </div>
 
-    <!-- Sección de detalles del evento -->
-    <section class="details">
-        <h2>Detalles del Evento</h2>
-        <p>La ceremonia será en <strong>Jardín Secreto</strong> a las 5:00 PM.</p>
-        <p>Recepción y fiesta a continuación en el mismo lugar.</p>
-        <button class="rsvp-btn" onclick="toggleRSVP()">Confirma tu asistencia</button>
+    <!-- Nuestra historia -->
+    <section class="history">
+        <h2>Nuestra Historia</h2>
+        <div>
+            <img src="https://via.placeholder.com/150" alt="Novio">
+            <img src="https://via.placeholder.com/150" alt="Novia">
+        </div>
+        <p>Nos conocimos en 2015 y desde entonces hemos compartido momentos increíbles...</p>
     </section>
 
-    <!-- Formulario RSVP -->
-    <div id="rsvp-form" class="rsvp-form">
-        <h3>Confirmar Asistencia</h3>
-        <form>
-            <input type="text" id="name" name="name" placeholder="Tu nombre" required>
-            <input type="number" id="guests" name="guests" placeholder="Número de invitados" required>
-            <button type="submit">Enviar</button>
-        </form>
-    </div>
-
-    <!-- Sección de video -->
-    <section class="video-section">
-        <h2>¡Mira nuestro video!</h2>
-        <video controls>
-            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-            Tu navegador no soporta la reproducción de videos.
-        </video>
+    <!-- Padres -->
+    <section class="parents">
+        <h2>Nuestros Padres</h2>
+        <div class="columns">
+            <p>Padres del Novio</p>
+            <p>&</p>
+            <p>Padres de la Novia</p>
+        </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>¡Te esperamos con muchas ganas!</p>
-    </footer>
+    <!-- Cuenta regresiva -->
+    <section class="countdown-section">
+        <h2>Te esperamos en nuestra boda</h2>
+        <p>20 de Noviembre de 2024</p>
+        <div class="countdown" id="countdown">
+            <div>
+                <span id="days">0</span> Días
+            </div>
+            <div>
+                <span id="hours">0</span> Horas
+            </div>
+            <div>
+                <span id="minutes">0</span> Minutos
+            </div>
+            <div>
+                <span id="seconds">0</span> Segundos
+            </div>
+        </div>
+    </section>
 
-    <!-- Script para controlar el formulario RSVP -->
+    <!-- Collage de fotos -->
+    <section class="collage">
+        <img src="https://via.placeholder.com/200" alt="Foto 1">
+        <img src="https://via.placeholder.com/200" alt="Foto 2">
+        <img src="https://via.placeholder.com/200" alt="Foto 3">
+        <img src="https://via.placeholder.com/200" alt="Foto 4">
+        <img src="https://via.placeholder.com/200" alt="Foto 5">
+        <img src="https://via.placeholder.com/200" alt="Foto 6">
+    </section>
+
+    <!-- Cita sobre el amor -->
+    <section class="quote-section">
+        <h2>"El amor todo lo puede"</h2>
+    </section>
+
+    <!-- Ubicaciones -->
+    <section class="locations">
+        <div class="location">
+            <i class="fas fa-church"></i>
+            <h3>Ceremonia Religiosa</h3>
+            <p>Iglesia de San Pedro</p>
+            <p>Calle Falsa 123</p>
+            <p>5:00 PM</p>
+            <a href="https://maps.google.com">Ver en Google Maps</a>
+        </div>
+        <div class="location">
+            <i class="fas fa-glass-cheers"></i>
+            <h3>Recepción</h3>
+            <p>Salón La Finca</p>
+            <p>Avenida Siempreviva 742</p>
+            <p>7:00 PM</p>
+            <a href="https://maps.google.com">Ver en Google Maps</a>
+        </div>
+    </section>
+
     <script>
-        function toggleRSVP() {
-            const rsvpForm = document.getElementById('rsvp-form');
-            rsvpForm.style.display = rsvpForm.style.display === 'block' ? 'none' : 'block';
-        }
+        // Script para la cuenta regresiva
+        const countdown = () => {
+            const weddingDate = new Date("November 20, 2024 17:00:00").getTime();
+            const now = new Date().getTime();
+            const difference = weddingDate - now;
 
-        document.querySelector('.scroll-btn').addEventListener('click', () => {
-            window.scrollTo({
-                top: window.innerHeight,
-                behavior: 'smooth'
-            });
-        });
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days;
+            document.getElementById("hours").innerText = hours;
+            document.getElementById("minutes").innerText = minutes;
+            document.getElementById("seconds").innerText = seconds;
+        };
+
+        setInterval(countdown, 1000);
     </script>
+
 </body>
 </html>
