@@ -342,24 +342,36 @@
         .form-section form {
             max-width: 500px;
             margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         .form-section form input,
         .form-section form select,
+        .form-section form textarea,
         .form-section form button {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             margin: 10px 0;
             border-radius: 5px;
             border: 1px solid #ddd;
+            font-size: 1rem;
         }
 
         .form-section form button {
             background-color: #d4af37;
             color: white;
             border: none;
-            font-size: 1rem;
             cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .form-section form button:disabled {
+            background-color: #b59d32;
+            cursor: not-allowed;
         }
 
         /* Footer */
@@ -465,22 +477,30 @@
 
     <!-- Sección de confirmación -->
     <section class="form-section">
-        <h2>Confirma tu Asistencia</h2>
+        <h2>Te invitamos a nuestra boda</h2>
         <form id="myForm">
             <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required><br><br>
+            <input type="text" id="nombre" name="nombre" required><br>
         
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required><br><br>
+            <label for="asistencia">¿Asistirás?</label>
+            <select id="asistencia" name="asistencia" required>
+                <option value="" disabled selected>Selecciona una opción</option>
+                <option value="Sí">Sí</option>
+                <option value="No">No</option>
+            </select><br>
         
-            <label for="mensaje">Mensaje:</label>
-            <textarea id="mensaje" name="mensaje" required></textarea><br><br>
+            <label for="numero-asistentes">Número de asistentes:</label>
+            <select id="numero-asistentes" name="numero-asistentes" required>
+                <option value="" disabled selected>Selecciona una opción</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+            </select><br>
 
-            <label for="rsvp">¿Asistirás?</label>
-            <textarea id="rsvp" name="rsvp" required></textarea><br><br>
+            <label for="mensaje">Deja un mensaje:</label>
+            <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe aquí tu mensaje..."></textarea><br>
         
-            <button type="submit">Confirmar</button>
-          </form>
+            <button type="submit" id="submitBtn">Confirmar Asistencia</button>
+        </form>
     </section>
 
     <!-- Footer -->
@@ -489,18 +509,28 @@
     </footer>
 
     <script>
-        // Script para enviar datos a Google Sheets
         const scriptURL = 'https://script.google.com/macros/s/AKfycbxqOpTQV1S94EhIqIrDTpwpnjxlOFIbh7om6fDUNec_f3lJW_EIU2Oclgb2ok08eysjIw/exec'; // Coloca el URL del Google Apps Script aquí
-    const form = document.getElementById('myForm');
+        const form = document.getElementById('myForm');
+        const submitBtn = document.getElementById('submitBtn');
 
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      const formData = new FormData(form);
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            submitBtn.disabled = true;
+            submitBtn.innerText = 'Enviando...';
 
-      fetch(scriptURL, { method: 'POST', body: formData })
-        .then(response => alert('¡Formulario enviado!'))
-        .catch(error => console.error('Error al enviar el formulario', error));
-    });
+            const formData = new FormData(form);
+
+            fetch(scriptURL, { method: 'POST', body: formData })
+                .then(response => {
+                    alert('¡Formulario enviado!');
+                    form.reset();
+                })
+                .catch(error => console.error('Error al enviar el formulario', error))
+                .finally(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.innerText = 'Confirmar Asistencia';
+                });
+        });
 
         // Script para la cuenta regresiva
         const countdown = () => {
@@ -521,6 +551,5 @@
 
         setInterval(countdown, 1000);
     </script>
-
 </body>
 </html>
