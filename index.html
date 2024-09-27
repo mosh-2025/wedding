@@ -466,23 +466,18 @@
     <!-- Sección de confirmación -->
     <section class="form-section">
         <h2>Confirma tu Asistencia</h2>
-        <form id="rsvp-form">
+        <form id="myForm">
             <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required><br><br>
-
-            <select id="rsvp" name="asistencia" required></select>
-                <option value="">¿Asistirás?</option>
-                <option value="Si">Sí</option>
-                <option value="No">No</option>
-            </select>
-
+            <input type="text" id="nombre" name="nombre" required><br><br>
+        
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required><br><br>
         
             <label for="mensaje">Mensaje:</label>
-            <textarea id="mensaje" name="mensaje" placeholder="Mensaje" required></textarea><br><br>
+            <textarea id="mensaje" name="mensaje" required></textarea><br><br>
 
-            <input type="number" id="num_inv" name="num_invitados" placeholder="Número de invitados" required>
+            <label for="rsvp">¿Asistirás?</label>
+            <textarea id="rsvp" name="rsvp" required></textarea><br><br>
         
             <button type="submit">Confirmar</button>
           </form>
@@ -503,7 +498,7 @@
       const formData = new FormData(form);
 
       fetch(scriptURL, { method: 'POST', body: formData })
-        .then(response => alert('¡Tu confirmación ha sido enviada!'))
+        .then(response => alert('¡Formulario enviado!'))
         .catch(error => console.error('Error al enviar el formulario', error));
     });
 
