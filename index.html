@@ -6,10 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>M&O 2025</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Favicon -->
     <link rel="icon" href="https://images.vexels.com/content/198184/preview/love-letter-stroke-icon-74f911.png" type="image/svg+xml" />
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Great+Vibes&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400&display=swap');
 
         * {
@@ -20,18 +19,17 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #f8f4f0; /* Fondo suave */
+            background-color: #f7f7f7;
             color: #333;
             scroll-behavior: smooth;
         }
 
-        /* Carrete de fotos */
+        /* Carrete automático de fotos */
         .carousel {
             position: relative;
             width: 100%;
             height: 100vh;
             overflow: hidden;
-            background-color: #fff;
         }
 
         .carousel img {
@@ -42,7 +40,22 @@
             top: 0;
             left: 0;
             animation: slide 15s infinite;
-            opacity: 0.8; /* Suavizar las imágenes */
+        }
+
+        @keyframes slide {
+            0% { opacity: 1; }
+            20% { opacity: 0; }
+            40% { opacity: 0; }
+            60% { opacity: 1; }
+            100% { opacity: 1; }
+        }
+
+        .carousel img:nth-child(2) {
+            animation-delay: 5s;
+        }
+
+        .carousel img:nth-child(3) {
+            animation-delay: 10s;
         }
 
         .overlay {
@@ -51,13 +64,13 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(255, 255, 255, 0.4); /* Fondo claro y elegante */
+            background: rgba(0, 0, 0, 0.5);
         }
 
         .content {
             position: relative;
             z-index: 1;
-            color: #333; /* Color de texto más oscuro para contraste */
+            color: #fff;
             text-align: center;
             top: 40%;
         }
@@ -65,28 +78,23 @@
         .content h1 {
             font-family: 'Playfair Display', serif;
             font-size: 4rem;
-            color: #b59d32; /* Tono dorado para el nombre */
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
         }
 
-        /* Historia */
+        /* Nuestra historia */
         .history {
-            padding: 4rem 1rem;
+            padding: 3rem 1rem;
             background-color: #fff;
             text-align: center;
-            color: #6b6b6b; /* Texto gris suave */
         }
 
         .history h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            color: #b59d32; /* Títulos en dorado */
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
         }
 
         .history p {
-            font-size: 1.3rem;
-            line-height: 1.6;
+            font-size: 1.2rem;
             margin-bottom: 2rem;
         }
 
@@ -95,76 +103,121 @@
             height: 150px;
             border-radius: 50%;
             object-fit: cover;
-            margin: 1rem 2rem;
-            border: 5px solid #b59d32; /* Marco dorado */
+            margin: 0 2rem;
         }
 
         /* Padres */
         .parents {
-            padding: 4rem 1rem;
-            background-color: #f8f4f0;
+            padding: 3rem 1rem;
             text-align: center;
+            background-color: #f7f7f7;
         }
 
         .parents h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: #b59d32;
+            font-size: 2rem;
+            margin-bottom: 1rem;
         }
 
         .parents p {
-            font-size: 1.6rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
             font-style: italic;
-            color: #6b6b6b;
         }
 
-        /* Cuenta regresiva */
+        .parents .columns {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 2rem;
+        }
+
+        /* Cuenta regresiva estilo elegante */
         .countdown-section {
-            background-color: #fff;
             text-align: center;
-            padding: 60px 20px;
-            border-bottom: 2px solid #f0e6d6;
+            padding: 50px 20px;
+            background-color: #f8f4f0;
         }
 
         .countdown-section h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
+            font-size: 2.5rem;
+            color: #4a4a4a;
             margin-bottom: 20px;
-            color: #b59d32;
         }
 
         .countdown-section p {
-            font-size: 2rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
             color: #9c9c9c;
+            margin-bottom: 40px;
+        }
+
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
         }
 
         .countdown-box {
-            background-color: #f7f7f7;
-            border: 1px solid #ddd;
+            background-color: #fff;
+            border: 1px solid #e4e4e4;
             padding: 20px;
             border-radius: 10px;
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         .countdown-box span {
-            font-size: 2.5rem;
-            color: #333;
+            display: block;
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #4a4a4a;
         }
 
         .countdown-box small {
-            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
             color: #9c9c9c;
+            margin-top: 10px;
         }
-        /* Collage */
+
+        /* Añade decoraciones como las hojas */
+        .countdown-decoration {
+            position: relative;
+        }
+
+        .countdown-decoration::before,
+        .countdown-decoration::after {
+            content: "";
+            position: absolute;
+            background: url('ruta-a-la-imagen-hojas.png') no-repeat;
+            background-size: contain;
+            width: 100px;
+            height: 150px;
+            opacity: 0.6;
+        }
+
+        .countdown-decoration::before {
+            left: -120px;
+            top: -20px;
+        }
+
+        .countdown-decoration::after {
+            right: -120px;
+            bottom: -20px;
+            transform: scaleX(-1);
+        }
+
+        /* Collage de fotos */
         .collage {
             padding: 3rem 1rem;
             text-align: center;
-            background-color: #fff;
+            background-color: #f7f7f7;
         }
 
         .collage img {
@@ -175,7 +228,7 @@
             border-radius: 10px;
         }
 
-        /* Sección de citas */
+        /* Sección de cita con fondo */
         .quote-section {
             position: relative;
             background: url('/mnt/data/image.png') no-repeat center center;
@@ -220,50 +273,122 @@
             letter-spacing: 2px;
         }
 
-        /* Sección de confirmación */
-        .form-section {
-            background-color: #faf4f0;
-            padding: 50px 20px;
+        /* Para dispositivos móviles */
+        @media (max-width: 768px) {
+            .quote-section {
+                height: 300px;
+            }
+
+            .quote-content h2 {
+                font-size: 1.8rem;
+            }
+
+            .quote-content .author {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Ubicaciones */
+        .locations {
+            padding: 3rem 1rem;
+            background-color: #fff;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .location {
             text-align: center;
         }
 
-        .form-section form {
-            max-width: 500px;
-            margin: 0 auto;
-            background: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        .location h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
         }
 
-        .form-section form input,
-        .form-section form select,
-        .form-section form textarea {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-            font-size: 1rem;
+        .location p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
         }
 
-        .form-section form button {
+        .location i {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .location a {
+            display: inline-block;
+            padding: 0.5rem 1rem;
             background-color: #d4af37;
             color: white;
-            border: none;
-            cursor: pointer;
-            font-size: 1.2rem;
-            font-weight: bold;
-            padding: 12px;
-            transition: background-color 0.3s ease;
-            width: 100%;
+            text-decoration: none;
             border-radius: 5px;
+            margin-top: 1rem;
         }
 
-        .form-section form button:hover {
-            background-color: #b59d32;
-        }
+        <!-- Estilos para el formulario -->
+<style>
+    /* Sección de confirmación */
+    .form-section {
+        background-color: #f8f4f0;
+        padding: 50px 20px;
+        text-align: center;
+    }
 
+    /* Encabezado */
+    .form-section h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5rem;
+        color: #4a4a4a;
+        margin-bottom: 20px;
+    }
+
+    /* Estilo del formulario */
+    .form-section form {
+        max-width: 500px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Estilo para inputs, select y textarea */
+    .form-section form input,
+    .form-section form select,
+    .form-section form textarea {
+        width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+        font-size: 1rem;
+        font-family: 'Garamond', serif;
+    }
+
+    /* Estilo del botón */
+    .form-section form button {
+        background-color: #d4af37;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 1.2rem;
+        font-weight: bold;
+        padding: 12px;
+        transition: background-color 0.3s ease;
+        width: 100%;
+        border-radius: 5px;
+    }
+
+    .form-section form button:hover {
+        background-color: #b59d32;
+    }
+
+    .form-section form button:disabled {
+        background-color: #b59d32;
+        cursor: not-allowed;
+    }
+
+        /* Footer */
         footer {
             background-color: #333;
             color: white;
@@ -278,103 +403,168 @@
     <!-- Carrete de fotos -->
     <div class="carousel">
         <img src="https://via.placeholder.com/1920x1080/ff7f7f" alt="Imagen 1">
-        <img src="https://via.placeholder.com/1920x1080/ffbf80" alt="Imagen 2">
-        <img src="https://via.placeholder.com/1920x1080/80dfff" alt="Imagen 3">
+        <img src="https://via.placeholder.com/1920x1080/7f7fff" alt="Imagen 2">
+        <img src="https://via.placeholder.com/1920x1080/7fff7f" alt="Imagen 3">
         <div class="overlay"></div>
         <div class="content">
-            <h1>M&O Wedding</h1>
+            <h1>Monze & Oscar</h1>
         </div>
     </div>
 
-    <!-- Historia -->
+    <!-- Nuestra historia -->
     <section class="history">
         <h2>Nuestra Historia</h2>
-        <p>Desde el primer día, supimos que estábamos destinados a estar juntos.</p>
-        <div class="history-images">
-            <img src="https://via.placeholder.com/150" alt="Imagen de historia">
-            <img src="https://via.placeholder.com/150" alt="Imagen de historia">
+        <p>Monze y Oscar se conocieron en el 2019 y han decidido dar este importante paso...</p>
+        <div class="columns"></div>
+            <img src="https://via.placeholder.com/150" alt="Monze">
+            <p>Lo que más amo...</p>
+            <img src="https://via.placeholder.com/150" alt="Oscar">
+            <p>Lo que más amo...</p>
         </div>
     </section>
 
-    <!-- Cuenta regresiva -->
-    <section class="countdown-section">
-        <h2>Cuenta Regresiva</h2>
+    <!-- Sección de padres -->
+    <section class="parents">
+        <h2>Nuestros Padres</h2>
+        <p>Con gran alegría, nuestros padres nos acompañan en este día especial.</p>
+        <div class="columns">
+            <p>Padres de Monze</p>
+            <p>Padres de Oscar</p>
+        </div>
+    </section>
+
+    <!-- Sección de cuenta regresiva -->
+    <section class="countdown-section countdown-decoration">
+        <h2>Faltan...</h2>
+        <p>Para el gran día</p>
         <div class="countdown-container">
             <div class="countdown-box">
-                <span id="days">00</span>
+                <span id="days">0</span>
                 <small>Días</small>
             </div>
             <div class="countdown-box">
-                <span id="hours">00</span>
+                <span id="hours">0</span>
                 <small>Horas</small>
             </div>
             <div class="countdown-box">
-                <span id="minutes">00</span>
+                <span id="minutes">0</span>
                 <small>Minutos</small>
             </div>
             <div class="countdown-box">
-                <span id="seconds">00</span>
+                <span id="seconds">0</span>
                 <small>Segundos</small>
             </div>
         </div>
     </section>
 
-    <!-- Formulario de confirmación -->
+    <!-- Collage de fotos -->
+    <section class="collage">
+        <img src="https://via.placeholder.com/200" alt="Foto 1">
+        <img src="https://via.placeholder.com/200" alt="Foto 2">
+        <img src="https://via.placeholder.com/200" alt="Foto 3">
+        <img src="https://via.placeholder.com/200" alt="Foto 4">
+    </section>
+
+    <!-- Sección de citas -->
+    <section class="quote-section">
+        <div class="quote-content">
+            <h2>"El amor no consiste en mirarse el uno al otro, sino en mirar juntos en la misma dirección."</h2>
+            <p class="author">- Antoine de Saint-Exupéry</p>
+        </div>
+    </section>
+
+    <!-- Ubicaciones -->
+    <section class="locations">
+        <div class="location">
+            <i class="fas fa-map-marker-alt"></i>
+            <h3>Ceremonia</h3>
+            <p>Iglesia de la Ciudad</p>
+            <a href="#">Ver ubicación</a>
+        </div>
+        <div class="location">
+            <i class="fas fa-map-marker-alt"></i>
+            <h3>Recepción</h3>
+            <p>Salón de Eventos</p>
+            <a href="#">Ver ubicación</a>
+        </div>
+    </section>
+
+        <!-- Sección de confirmación -->
     <section class="form-section">
-        <h2>Confirmar asistencia</h2>
-        <form id="weddingForm" name="submit-to-google-sheet">
-            <input type="text" name="nombre" placeholder="Nombre Completo" required>
-            <input type="email" name="email" placeholder="Correo Electrónico" required>
-            <select name="asistencia" required>
-                <option value="">¿Asistirás?</option>
-                <option value="Si">Sí</option>
+        <h2>Te invitamos a nuestra boda</h2>
+        <form id="myForm">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre..." required><br>
+        
+            <label for="asistencia">¿Asistirás?</label>
+            <select id="asistencia" name="asistencia" required>
+                <option value="" disabled selected>Selecciona una opción</option>
+                <option value="Sí">Sí</option>
                 <option value="No">No</option>
-            </select>
-            <textarea name="mensaje" rows="4" placeholder="Escribe tu mensaje"></textarea>
-            <button type="submit">Enviar Confirmación</button>
+            </select><br>
+        
+            <label for="numero-asistentes">Número de asistentes:</label>
+            <select id="numero-asistentes" name="numero-asistentes" required>
+                <option value="" disabled selected>Selecciona una opción</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+            </select><br>
+
+            <label for="mensaje">Deja un mensaje:</label>
+            <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe aquí tu mensaje..."></textarea><br>
+        
+            <button type="submit" id="submitBtn">Confirmar Asistencia</button>
         </form>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>© 2025 M&O. Todos los derechos reservados.</p>
+        &copy;  Monze & Oscar 2025. Todos los derechos reservados.
     </footer>
 
     <script>
-        // Cuenta regresiva
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxqOpTQV1S94EhIqIrDTpwpnjxlOFIbh7om6fDUNec_f3lJW_EIU2Oclgb2ok08eysjIw/exec'; // Coloca el URL del Google Apps Script aquí
+        const form = document.getElementById('myForm');
+        const submitBtn = document.getElementById('submitBtn');
+    
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            submitBtn.disabled = true;
+            submitBtn.innerText = 'Enviando...';
+    
+            const formData = new FormData(form);
+    
+            fetch(scriptURL, { method: 'POST', body: formData })
+                .then(response => response.text())
+                .then(data => {
+                    alert('¡Formulario enviado!'); // Mostrar la alerta al terminar el envío
+                    form.reset(); // Limpiar el formulario después del envío
+                })
+                .catch(error => console.error('Error al enviar el formulario', error))
+                .finally(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.innerText = 'Confirmar Asistencia';
+                });
+        });    
+
+        // Script para la cuenta regresiva
         const countdown = () => {
-            const countDate = new Date("Aug 15, 2025 00:00:00").getTime();
+            const weddingDate = new Date("March 8, 2025 17:00:00").getTime();
             const now = new Date().getTime();
-            const gap = countDate - now;
+            const difference = weddingDate - now;
 
-            const second = 1000;
-            const minute = second * 60;
-            const hour = minute * 60;
-            const day = hour * 24;
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-            const days = Math.floor(gap / day);
-            const hours = Math.floor((gap % day) / hour);
-            const minutes = Math.floor((gap % hour) / minute);
-            const seconds = Math.floor((gap % minute) / second);
-
-            document.getElementById('days').innerText = days;
-            document.getElementById('hours').innerText = hours;
-            document.getElementById('minutes').innerText = minutes;
-            document.getElementById('seconds').innerText = seconds;
+            document.getElementById("days").innerText = days;
+            document.getElementById("hours").innerText = hours;
+            document.getElementById("minutes").innerText = minutes;
+            document.getElementById("seconds").innerText = seconds;
         };
 
         setInterval(countdown, 1000);
-
-        // Envío de datos del formulario a Google Sheets
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbwQeXlJHdXrI4obS5D2LfKUl7z2Xb4odA/exec';
-        const form = document.forms['submit-to-google-sheet'];
-        form.addEventListener('submit', e => {
-            e.preventDefault();
-            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-                .then(response => alert('Confirmación enviada con éxito.'))
-                .catch(error => console.error('Error!', error.message));
-        });
     </script>
-
 </body>
 </html>
