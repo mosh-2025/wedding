@@ -325,54 +325,68 @@
             margin-top: 1rem;
         }
 
-        /* Estilos para formulario */
-        .form-section {
-            background-color: #f8f4f0;
-            padding: 50px 20px;
-            text-align: center;
-        }
+        <!-- Estilos para el formulario -->
+<style>
+    /* Sección de confirmación */
+    .form-section {
+        background-color: #f8f4f0;
+        padding: 50px 20px;
+        text-align: center;
+    }
 
-        .form-section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: #4a4a4a;
-            margin-bottom: 20px;
-        }
+    /* Encabezado */
+    .form-section h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5rem;
+        color: #4a4a4a;
+        margin-bottom: 20px;
+    }
 
-        .form-section form {
-            max-width: 500px;
-            margin: 0 auto;
-            background: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
+    /* Estilo del formulario */
+    .form-section form {
+        max-width: 500px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
 
-        .form-section form input,
-        .form-section form select,
-        .form-section form textarea,
-        .form-section form button {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-            font-size: 1rem;
-        }
+    /* Estilo para inputs, select y textarea */
+    .form-section form input,
+    .form-section form select,
+    .form-section form textarea {
+        width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+        font-size: 1rem;
+        font-family: 'Garamond', serif;
+    }
 
-        .form-section form button {
-            background-color: #d4af37;
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
+    /* Estilo del botón */
+    .form-section form button {
+        background-color: #d4af37;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 1.2rem;
+        font-weight: bold;
+        padding: 12px;
+        transition: background-color 0.3s ease;
+        width: 100%;
+        border-radius: 5px;
+    }
 
-        .form-section form button:disabled {
-            background-color: #b59d32;
-            cursor: not-allowed;
-        }
+    .form-section form button:hover {
+        background-color: #b59d32;
+    }
+
+    .form-section form button:disabled {
+        background-color: #b59d32;
+        cursor: not-allowed;
+    }
 
         /* Footer */
         footer {
@@ -475,12 +489,12 @@
         </div>
     </section>
 
-    <!-- Sección de confirmación -->
+        <!-- Sección de confirmación -->
     <section class="form-section">
         <h2>Te invitamos a nuestra boda</h2>
         <form id="myForm">
             <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required><br>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre..." required><br>
         
             <label for="asistencia">¿Asistirás?</label>
             <select id="asistencia" name="asistencia" required>
@@ -512,27 +526,26 @@
         const scriptURL = 'https://script.google.com/macros/s/AKfycbxqOpTQV1S94EhIqIrDTpwpnjxlOFIbh7om6fDUNec_f3lJW_EIU2Oclgb2ok08eysjIw/exec'; // Coloca el URL del Google Apps Script aquí
         const form = document.getElementById('myForm');
         const submitBtn = document.getElementById('submitBtn');
-
+    
         form.addEventListener('submit', e => {
             e.preventDefault();
             submitBtn.disabled = true;
             submitBtn.innerText = 'Enviando...';
-
+    
             const formData = new FormData(form);
-
-            fetch(scriptURL, { method: 'POST', body: formData 
-
-                }).then(response => response.text())
+    
+            fetch(scriptURL, { method: 'POST', body: formData })
+                .then(response => response.text())
                 .then(data => {
                     alert('¡Formulario enviado!'); // Mostrar la alerta al terminar el envío
-                    submitBtn.disabled = false; // Desbloquear el botón
+                    form.reset(); // Limpiar el formulario después del envío
                 })
                 .catch(error => console.error('Error al enviar el formulario', error))
                 .finally(() => {
                     submitBtn.disabled = false;
                     submitBtn.innerText = 'Confirmar Asistencia';
                 });
-        });
+        });    
 
         // Script para la cuenta regresiva
         const countdown = () => {
