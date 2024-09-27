@@ -520,10 +520,12 @@
 
             const formData = new FormData(form);
 
-            fetch(scriptURL, { method: 'POST', body: formData })
-                .then(response => {
-                    alert('¡Formulario enviado!');
-                    form.reset();
+            fetch(scriptURL, { method: 'POST', body: formData 
+
+                }).then(response => response.text())
+                .then(data => {
+                    alert('¡Formulario enviado!'); // Mostrar la alerta al terminar el envío
+                    submitBtn.disabled = false; // Desbloquear el botón
                 })
                 .catch(error => console.error('Error al enviar el formulario', error))
                 .finally(() => {
