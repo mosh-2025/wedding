@@ -389,8 +389,12 @@
     <section class="history">
         <h2>Nuestra Historia</h2>
         <p>Monze y Oscar se conocieron en el 2019 y han decidido dar este importante paso...</p>
-        <img src="https://via.placeholder.com/150" alt="Monze">
-        <img src="https://via.placeholder.com/150" alt="Oscar">
+        <div class="columns"></div>
+            <img src="https://via.placeholder.com/150" alt="Monze">
+            <p>Lo que más amo...</p>
+            <img src="https://via.placeholder.com/150" alt="Oscar">
+            <p>Lo que más amo...</p>
+        </div>
     </section>
 
     <!-- Sección de padres -->
@@ -462,16 +466,18 @@
     <!-- Sección de confirmación -->
     <section class="form-section">
         <h2>Confirma tu Asistencia</h2>
-        <form id="rsvp-form">
-            <input type="text" name="nombre" placeholder="Tu nombre" required>
-            <select name="asistencia" required>
-                <option value="">¿Asistirás?</option>
-                <option value="Si">Sí</option>
-                <option value="No">No</option>
-            </select>
-            <input type="number" name="num_invitados" placeholder="Número de invitados" required>
-            <button type="submit">Confirmar</button>
-        </form>
+        <form id="myForm">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required><br><br>
+        
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+        
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" required></textarea><br><br>
+        
+            <button type="submit">Enviar</button>
+          </form>
     </section>
 
     <!-- Footer -->
@@ -481,15 +487,17 @@
 
     <script>
         // Script para enviar datos a Google Sheets
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbxK8cOvJnDinbGjSAaiVbP1Mlyqe-FdASsjsBnsF5om7yLPdZLC90E3mBHGpSXWrWUPzA/exec';  // Cambia por tu propio URL de Google Script
-        const form = document.getElementById('rsvp-form');
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxqOpTQV1S94EhIqIrDTpwpnjxlOFIbh7om6fDUNec_f3lJW_EIU2Oclgb2ok08eysjIw/exec'; // Coloca el URL del Google Apps Script aquí
+    const form = document.getElementById('myForm');
 
-        form.addEventListener('submit', e => {
-            e.preventDefault();
-            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-                .then(response => alert('¡Gracias por confirmar!'))
-                .catch(error => console.error('Error!', error.message));
-        });
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const formData = new FormData(form);
+
+      fetch(scriptURL, { method: 'POST', body: formData })
+        .then(response => alert('¡Formulario enviado!'))
+        .catch(error => console.error('Error al enviar el formulario', error));
+    });
 
         // Script para la cuenta regresiva
         const countdown = () => {
